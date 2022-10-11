@@ -1,0 +1,276 @@
+$primary-color : rgba(51, 51, 51, 0.08);
+
+@mixin size($width, $height:$width){
+    width: $width;
+    height: $height;
+}
+body{
+    font-size: 62.5%;
+    position: relative;
+    box-sizing: border-box;
+    background-color: $primary-color;
+     @include size(100vw,100vh);
+    .container{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        @include size(60rem,35rem);
+        background-image:url(https://media.istockphoto.com/videos/4k-abstract-loop-futuristic-technology-background-with-lines-and-dots-video-id670353238?s=640x640);
+        background-position:bottom;
+        border-radius: 2rem;
+        .heading{
+            position: absolute;
+            font-size: 1.2rem;
+            font-family: monospace;
+            font-weight: 500;
+            left:50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+           
+            &__text{
+                border-right: 0.3rem solid orange;
+                border-radius: 5px;
+                letter-spacing: 0.5rem;
+                white-space: nowrap; // khong xuong dong 
+                overflow: hidden;
+                animation : typing 4s steps(16) infinite ,showborder 1s steps(2) infinite ;
+                color : transparent;
+                -webkit-background-clip: text;
+                background-clip:text;
+                background-image: linear-gradient(to bottom , rgba(103, 147, 192, 0.246),rgba(19, 139, 146, 0.485));
+                text-shadow: 0.2rem 0.3rem 0.3px  rgb(243, 10, 10);
+            }
+            @keyframes showborder {
+                0%{
+                    border-color: transparent ;
+                }
+                100%{
+                    border-color: orange ;
+                }
+            }
+            @keyframes typing{
+                0%{
+                    width: 0%;
+                }
+                100%{
+                    width: 100%;
+                }
+            }
+        }
+        .avatar{
+             &__img{
+                position:absolute;
+                @include size(5rem,5rem);
+                top:1.2rem;
+                left:5rem;
+        }
+    }
+         .list{
+           position:absolute;
+           top:20%;
+           left:1rem;
+           @include size(15rem);
+
+           &__heading{
+            text-align: center;
+               font-size: 1.5rem;
+               font-family: monospace;
+                span{
+                    color :rgb(243, 10, 10);
+                }
+                border:1px solid rgba(51, 51, 51, 0.333);
+                border-radius: 5px ;
+                 background-color:rgba(245, 222, 179, 0.613);
+
+           }
+           &__item{
+              list-style: none;
+              .item{
+                color:white;
+                width: 10rem;
+                 border: 1px solid rgba(230, 223, 223, 0.469);
+                 border-radius: 4px;
+                font-size: 1.3rem;
+                text-align: center;
+                 background-color: rgba(2, 82, 81, 0.04);
+                span{
+                    color:red;
+                    font-weight: 300;
+                }
+              }
+              .item:not(:first-child){
+                margin-top:1rem;
+              }
+              .item:first-child{
+                     animation: silde 2s cubic-bezier(0.04, 0.23, 0.18, 1.35) 1;
+              }
+              .item:nth-child(2){
+                     animation: silde 2s cubic-bezier(0.04, 0.23, 0.18, 1.35) 1 0.2s;
+              }
+              .item:nth-child(3){
+                     animation: silde 2s cubic-bezier(0.04, 0.23, 0.18, 1.35) 1 0.4s;
+              }
+           }
+           @keyframes silde{
+                0%{
+                    transform: translateX(-40rem);
+                    opacity: 0;
+                }
+                
+                100%{
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+           }
+
+         }
+      .content{
+        &__img{
+            position: absolute;
+        }
+        &__img:first-child{
+             top:-2.5rem;
+             right:0;
+             transform: translateX(-28%);
+            @include size(40rem,20rem);
+            animation : ficker 2s ease-in-out infinite ;
+        }
+        &__img:nth-child(2){
+            overflow: hidden;
+             bottom: -28%;
+             right: 15%;
+             transform: translate(0%,-50%);
+            @include size(40rem,20rem);
+            animation: slide 2s cubic-bezier(0, 0.27, 0.73, 1.19) 1 ;
+        }
+        &__img:nth-child(3){
+             top:10%;
+             right: 10%;
+            @include size(10rem,5rem);
+            animation:  rotate 1.5s cubic-bezier(0, 0.27, 0.73, 1.19) 1 ;
+        }
+        @keyframes rotate {
+            0%{
+                opacity: 0;
+                right:-100%;
+                transform: rotate(95deg);
+                
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 1;
+                right: 10%;
+                transform:rotate(0deg);
+                
+            }
+            
+        }
+        @keyframes ficker {
+            0%{
+                opacity: 0;
+                
+                
+            }
+            100%{
+                opacity: 1;
+                
+            }
+            
+        }
+        @keyframes slide {
+            0%{
+                opacity: 0;
+                right:-100%
+                
+            }
+            50%{
+                opacity:0;
+            }
+            100%{
+                opacity: 1;
+                right:15%;
+            }
+            
+        }
+
+      }
+        .gen{
+            position :absolute;
+            bottom:3rem;
+            left:4rem;
+            &__cirle{
+                //  position:absolute;
+                 @include size(0.8rem,0.8rem);
+                 border-radius: 50%;
+                 margin-bottom: 5px;
+                 background-color: red;
+                 animation: gencrile 1s linear infinite alternate;
+
+                 &::after{
+                    position:absolute;
+                    content:"";
+                    @include size(0.8rem,0.8rem);
+                    border-radius: 50%;
+                    left:3rem;
+                    background-color: rgba(19, 139, 146, 0.485);
+                 animation: gencrile1 1s linear infinite alternate;
+
+                 }
+             }
+             &__cirle:nth-child(2) ,&__cirle:nth-child(2)::after {
+                animation-delay: 0.2s;
+             }
+             &__cirle:nth-child(3),&__cirle:nth-child(3)::after{
+                animation-delay: 0.4s;
+             }
+             &__cirle:nth-child(4),&__cirle:nth-child(4)::after{
+                animation-delay: 0.6s;
+             }
+             &__cirle:nth-child(5),&__cirle:nth-child(5)::after{
+                animation-delay: 0.8s;
+             }
+             &__cirle:nth-child(6),&__cirle:nth-child(6)::after{
+                animation-delay: 1s;
+             }
+             &__cirle:nth-child(7),&__cirle:nth-child(7)::after{
+                animation-delay: 1.2s;
+             }
+             &__cirle:nth-child(8),&__cirle:nth-child(8)::after{
+                animation-delay: 1.4s;
+             }
+             &__cirle:nth-child(9),&__cirle:nth-child(9)::after{
+                animation-delay: 1.6s;
+             }
+             &__cirle:nth-child(10),&__cirle:nth-child(10)::after{
+                animation-delay: 1.8s;
+             }
+             @keyframes  gencrile {
+                0%{
+                   transform: translateX(0);
+                }
+                50%{
+                   background-color:purple;
+                }
+                100%{
+                    transform: translateX(6rem);
+                }
+             }
+             @keyframes  gencrile1 {
+                0%{
+                   transform: translateX(0);
+
+                }
+                50%{
+                    background-color:purple;
+                }
+                100%{
+                    transform: translateX(-12rem);
+                }
+             }
+        }
+    }
+}
+
